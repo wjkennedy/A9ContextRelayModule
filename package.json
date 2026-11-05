@@ -1,0 +1,40 @@
+{
+  "name": "@a9group/context-relay",
+  "version": "0.1.0",
+  "description": "Browser client for host-signed Context Relay reports.",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "src",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "check": "node --check src/index.js && node --check src/evidence.js && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjkennedy/A9ContextRelayModule.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wjkennedy/A9ContextRelayModule/issues"
+  },
+  "homepage": "https://github.com/wjkennedy/A9ContextRelayModule#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18"
+  }
+}
