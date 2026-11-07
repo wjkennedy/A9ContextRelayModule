@@ -19,6 +19,7 @@
     "LICENSE"
   ],
   "scripts": {
+    "demo": "npx --yes serve demo",
     "test": "node --test tests/**/*.test.js",
     "check": "node --check src/index.js && node --check src/evidence.js && npm test"
   },

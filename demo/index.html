@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context Relay · First-party demo</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark">A9</span><span>Context Relay</span></div>
+    <span class="status"><i></i> demo environment</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">A9GROUP / FIRST-PARTY EXPERIENCE</p>
+      <h1>Report a problem with the context still attached.</h1>
+      <p class="lede">A small, host-owned relay turns a customer report into a verifiable handoff. Explore both sides of the boundary.</p>
+    </section>
+    <nav class="tabs" aria-label="Demo experiences">
+      <button class="tab active" data-view="customer">Customer view</button>
+      <button class="tab" data-view="operator">First-party console</button>
+    </nav>
+    <section id="customer" class="view active-view" aria-labelledby="customer-title">
+      <div class="grid two-up">
+        <article class="panel elevated">
+          <div class="panel-header"><span id="customer-title">Need help?</span><span class="pill">shipping</span></div>
+          <div class="panel-body">
+            <label for="message">What went wrong?</label>
+            <textarea id="message" rows="5">My delivery date disappeared after I changed the address.</textarea>
+            <div class="field-row"><span class="muted">Surface</span><code>shipping</code><span class="muted">Evidence</span><code id="evidence-count">3 events</code></div>
+            <button class="primary" id="submit">Send report securely</button>
+            <p class="fine">Your report stays with the host application. No cookies, storage, headers, or form values are collected.</p>
+          </div>
+        </article>
+        <aside class="panel protocol-card">
+          <div class="panel-header">What happens next</div>
+          <ol class="steps">
+            <li><b>01</b><span>Ask the host for a signed context assertion.</span></li>
+            <li><b>02</b><span>Relay the exact report and envelope to the host-selected receiver.</span></li>
+            <li><b>03</b><span>Return a receipt without exposing service credentials.</span></li>
+          </ol>
+          <details><summary>Local evidence snapshot</summary><pre id="snapshot">context-relay-session-v1
+surface: shipping
+events: address.updated, delivery.estimated, checkout.viewed</pre></details>
+        </aside>
+      </div>
+      <div id="result" class="result" hidden></div>
+    </section>
+    <section id="operator" class="view" aria-labelledby="operator-title">
+      <div class="console-head"><div><p class="eyebrow">RECEIVER / HOST OWNED</p><h2 id="operator-title">Context Relay console</h2></div><span class="badge">assertion verified</span></div>
+      <div class="grid console-grid">
+        <article class="panel"><div class="panel-header">Incoming report</div><div class="panel-body"><p class="report-quote" id="console-message">No report received yet. Submit one from Customer view.</p><div class="meta"><span>surface</span><code id="console-surface">—</code><span>received</span><code id="console-time">—</code></div></div></article>
+        <article class="panel"><div class="panel-header">Relay receipt</div><div class="panel-body"><div class="receipt-row"><span>status</span><strong id="console-status">awaiting report</strong></div><div class="receipt-row"><span>issue key</span><code id="console-key">—</code></div><div class="receipt-row"><span>envelope</span><code id="console-envelope">—</code></div><details><summary>Boundary notes</summary><p class="muted">The host signs the surface-to-context mapping. The browser client never knows service ownership or Jira credentials.</p></details></div></article>
+      </div>
+    </section>
+    <footer><span>Built around <code>@a9group/context-relay</code></span><a href="https://github.com/wjkennedy/A9ContextRelayModule" target="_blank" rel="noreferrer">View module source ↗</a></footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
